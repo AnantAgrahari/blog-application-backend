@@ -29,8 +29,8 @@ class blogController{
         else{
             return res.status(400).json({message:"all fields are required"});
         }
-       } catch (error) {
-        return res.status(400).json({message:error.message});
+       } catch (err) {
+        return res.status(400).json({message:err.message});
        }
     };
     static getSingleBlog=async(req,res)=>{
