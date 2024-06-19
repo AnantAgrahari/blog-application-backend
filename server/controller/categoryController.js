@@ -1,20 +1,21 @@
-import categorymodels from "../models/categorymodels.js";
+import categoryModel from "../models/categorymodels.js";
 class CategoryController{
 static getAllCategories=async(req,res)=>{
    try {
-    const fetchAllCategories=await categorymodels.find({});
+    const fetchAllCategories=await categoryModel.find({});
     return res.status(200).json(fetchAllCategories);
    } catch (error) {
     return res.status(400).json({message:error.message});
    }
 };
+
 static addNewCategory=async(req,res)=>{
- const {title}=req.body;
+ const { title }=req.body;
  try {
     if(title)
     {
-     const newCategory=new categorymodels({
-        title,
+     const newCategory=new categoryModel({
+        title
      });
      const savedCategory=await newCategory.save();
      if(savedCategory)

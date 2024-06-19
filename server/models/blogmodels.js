@@ -4,7 +4,7 @@ const blogSchema=new mongoose.Schema({
         type:String,
     },
     category:{
-        type:String,
+        type:mongoose.Schema.Types.ObjectId,
         refer:"categories"
     },
     description:{
@@ -14,6 +14,10 @@ const blogSchema=new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         refer:"users",
     },
+    user:{
+       type: mongoose.Schema.Types.ObjectId,
+       refer:"users",  
+    },
 });
 const blogModel=mongoose.model("blogs",blogSchema);
-export default blogModel;
+export default blogModel; 
