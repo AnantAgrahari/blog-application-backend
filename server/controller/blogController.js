@@ -19,9 +19,9 @@ class blogController{
         {
         const addBlog=new blogModel({
         title:title,
-        description:description,
+        description:description, 
         category:category,
-       
+       thumbnail: req.file.filename,
         user: req.user._id,
         });
         const savedBlog=await addBlog.save();
